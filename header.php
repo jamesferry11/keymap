@@ -30,6 +30,9 @@
 for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
 mixpanel.init("27f4a82587c48af0326334facf44cb80");</script><!-- end Mixpanel -->
 
+		<script type="text/javascript" src="//use.typekit.net/ffl8wgu.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 		<!--[if lt IE 7]>
 	    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 		<![endif]-->
@@ -39,20 +42,23 @@ mixpanel.init("27f4a82587c48af0326334facf44cb80");</script><!-- end Mixpanel -->
 </head>
 <body class="<?php echo $body_class; ?>">
 	<header>
+		<h1 id="logo">Keycodes</h1>
+		<h2>The fun and painless way to grab keyboard codes, unicodes, and ASCII codes.</h2>
 		<a class="settings"><span>Settings</span></a>
-		<p class="theme-switcher"><a href="#" class="light">White</a> | <a href="#" class="dark">Blue</a></p>
-	</header>
-	<aside>
+		<p class="theme-switcher">
+			<a href="#" class="light">White</a>
+			<a href="#" class="dark">Blue</a>
+		</p>
 		<menu>
 			<a href="#charcode" id="charcode">Keycode</a>
 			<a href="#unicode" id="unicode">Unicode</a>
 			<a href="#encoded" id="encoded">URL Encoded</a>
 		</menu>
+	</header>
+	<!-- <aside>
 		<div class="twitter-share">
 			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://keycodes.atjayjo.com" data-text="Tired of hunting through lists of character codes - checkout Keycodes" data-via="jayjo">Tweet</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 		</div>
-	</aside>
+	</aside> -->
 	<section class="wrap">
-		<!-- <h1 id="logo">Keycodes</h1>
-		<h2>The fun and painless way to grab keyboard codes, unicodes, and ASCII codes.</h2> -->

@@ -13,12 +13,24 @@
 /************** Icon Fonts ***************/
 /************** Font Fonts ***************/
 /************** Colors ***************/
+/************** New Colors ***************/
 @import url(reset.css);
 @import url(../fonts/style.css);
 @import url(animate.min.css);
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+li:focus, a:focus, button:focus, input[type=submit]:focus {
+  outline: none;
+}
+
 body {
   margin: 0;
-  /*background: #F3F3F3;*/
   -webkit-font-smoothing: antialiased;
 }
 
@@ -116,6 +128,14 @@ a.active {
    Author's custom styles
    ========================================================================== */
 /* @group Global */
+header {
+  background: #fff;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+}
+
 /* @end */
 /* @group Home */
 html {
@@ -135,13 +155,13 @@ body {
   background: -moz-linear-gradient(25deg, #3B5998, #4099FF);
   background: -o-linear-gradient(25deg, #3B5998, #4099FF);
   background: linear-gradient(25deg, #3B5998, #4099FF);*/
-  background: #27313e;
+  background: #fff;
   height: 100%;
   width: 100%;
   margin: 0 auto;
   padding: 0;
-  font-family: omnes-pro;
-  font-weight: 100;
+  font-family: "acumin-pro";
+  line-height: 24px;
 }
 
 #keyboard *, #codebox * {
@@ -157,14 +177,9 @@ body {
   clear: both;
 }
 
-header, footer {
-  width: 100%;
-  text-align: center;
-  margin: 0;
-}
-
 header {
-  padding: 30px 0 0;
+  padding: 0;
+  z-index: 10;
 }
 header .theme-switcher {
   background: #27313e;
@@ -206,6 +221,7 @@ footer {
   position: fixed;
   bottom: 80px;
   width: 100%;
+  display: none;
 }
 
 .copyright p {
@@ -214,37 +230,31 @@ footer {
 }
 
 .wrapper {
-  background: #151d26;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  left: 20px;
-  bottom: 20px;
-  border-radius: 3px;
+  background: #f1f7fc;
+  position: relative;
   opacity: 0;
+  min-height: 100vh;
   transition: all 0.2s;
   -moz-transition: all 0.2s;
   -webkit-transition: all 0.2s;
 }
 
 .wrapper.active {
-  left: 145px;
-  border-radius: 0 3px 3px 0;
   transition: all 0.2s;
   -moz-transition: all 0.2s;
   -webkit-transition: all 0.2s;
 }
 
 aside {
-  padding: 20px;
-  width: 105px;
+  padding: 12px;
+  width: 150px;
   position: fixed;
   min-height: 100%;
   left: 0;
   top: 0;
   z-index: 1;
   opacity: 0;
-  background: #27313e;
+  display: none;
   /*box-sizing: border-box;
   -moz-box-sizing: border-box;*/
   transition: all 0.2s;
@@ -253,7 +263,7 @@ aside {
 }
 
 aside.inactive {
-  left: -145px;
+  left: -190px;
   transition: all 0.2s;
   -moz-transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -261,24 +271,18 @@ aside.inactive {
 
 .settings {
   display: block;
-  width: 50px;
-  height: 50px;
-  position: relative;
+  width: 20px;
+  height: 20px;
+  position: absolute;
   left: 20px;
-  top: -10px;
+  top: 20px;
   z-index: 4;
-  background: #27313e;
-  border-radius: 0 0 3px 0;
+  border-radius: 0;
   cursor: pointer;
 }
 
-.settings.close {
-  border-radius: 3px;
-  background: #151d26;
-}
-
-.settings.close:hover {
-  background: #27313e;
+.settings.close:hover:before {
+  color: #088feb;
 }
 
 .settings span {
@@ -288,15 +292,15 @@ aside.inactive {
 }
 
 .settings:before {
-  color: #16a085;
-  font: 39px "icomoon";
+  color: #adbfd2;
+  font: 20px "icomoon";
   position: relative;
-  top: 3px;
+  top: -1px;
   content: "";
 }
 
 .settings.close:before {
-  color: #c51e32;
+  color: #adbfd2;
   content: "";
 }
 
@@ -309,6 +313,7 @@ h1#logo {
   width: 184px;
   margin: 26px auto 0;
   cursor: pointer;
+  height: 30px;
 }
 
 h1#logo.blue {
@@ -342,6 +347,10 @@ aside menu {
   transition: all 0.2s;
   -moz-transition: all 0.2s;
   -webkit-transition: all 0.2s;
+}
+
+menu {
+  width: 140px;
 }
 
 menu a {
@@ -411,7 +420,7 @@ menu a.active {
   width: 1034px;
   height: 386px;
   position: absolute;
-  top: 42%;
+  top: 50%;
   left: 50%;
   opacity: 0;
   pointer-events: none;
@@ -437,70 +446,70 @@ row {
   display: block;
   margin: 0 auto;
   list-style: none;
-  margin-bottom: 6px;
+  margin-bottom: 0;
   position: relative;
 }
 
 key {
-  border-radius: 3px;
-  border: 2px solid rgba(22, 160, 133, 0.35);
+  border-radius: 0;
+  border: 1px solid rgba(56, 91, 119, 0.35);
   background: transparent;
-  font-family: Helvetica;
+  font-family: "acumin-pro";
   font-weight: normal;
-  font-size: 19px;
-  line-height: 26px;
+  font-size: 16px;
+  line-height: 24px;
   text-align: center;
-  margin: 0 2px;
+  margin: 0;
   display: inline-block;
   text-transform: uppercase;
   position: relative;
   cursor: pointer;
   display: inline-block;
-  color: #fccd43;
+  color: #adbfd2;
   /*@include key;*/
   /*@include keyshadow;*/
 }
 
 key.double {
-  color: rgba(255, 255, 255, 0.25);
+  color: #adbfd2;
 }
 
 key.double:hover {
-  color: rgba(255, 255, 255, 0.25);
+  color: #385b77;
 }
 
 key.double.uppercase {
-  color: #fccd43;
+  color: #adbfd2;
 }
 
 key.double.uppercase:hover {
-  color: #fff;
+  color: #385b77;
 }
 
 key.double.uppercase:active,
 key.double.uppercase.active {
-  color: rgba(255, 255, 255, 0.25);
+  color: #385b77;
 }
 
 key.double.uppercase:hover span {
-  color: rgba(255, 255, 255, 0.25);
+  color: #385b77;
 }
 
 key.double.uppercase span {
-  color: rgba(255, 255, 255, 0.25);
+  color: #adbfd2;
 }
 
 key.double span {
-  color: #fccd43;
+  color: #adbfd2;
 }
 
 key.double:hover span {
-  color: #fff;
+  color: #385b77;
 }
 
 key.double.active span,
 key.double:active span {
-  color: rgba(255, 255, 255, 0.25);
+  color: #385b77;
 }
 
 key.deactivated {
@@ -515,8 +524,8 @@ key.deactivated {
 }
 
 key:hover {
-  border: 2px solid #16a085;
-  color: white;
+  border: 1px solid #385b77;
+  color: #385b77;
   /*@include keyshadowhover;*/
 }
 
@@ -916,7 +925,7 @@ input[type=text] {
     top: 16px;
     @include keyshadowactive;
     pointer-events: none;
-}*/
+    }*/
 #keyboard.unicode row.six key.space {
   top: 16px;
 }
